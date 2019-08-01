@@ -63,6 +63,10 @@ namespace CCUSpielplanAuslesen
             startFormContent.StartDate = dateTimePicker1.Text;
 
             Ausfuehren.Run(startFormContent);
+
+
+
+            Close();
         }
     }
 }

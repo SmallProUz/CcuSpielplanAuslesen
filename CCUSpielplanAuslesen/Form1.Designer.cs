@@ -63,7 +63,7 @@
             this.tB_ErsteSpalte.Name = "tB_ErsteSpalte";
             this.tB_ErsteSpalte.Size = new System.Drawing.Size(100, 20);
             this.tB_ErsteSpalte.TabIndex = 2;
-            this.tB_ErsteSpalte.Text = "4";
+            this.tB_ErsteSpalte.Text = "5";
             // 
             // lbl_ErsteSpalte
             // 
@@ -72,7 +72,7 @@
             this.lbl_ErsteSpalte.Name = "lbl_ErsteSpalte";
             this.lbl_ErsteSpalte.Size = new System.Drawing.Size(92, 13);
             this.lbl_ErsteSpalte.TabIndex = 3;
-            this.lbl_ErsteSpalte.Text = "Erste Spalte (E=4)";
+            this.lbl_ErsteSpalte.Text = "Erste Spalte (E=5)";
             // 
             // tB_ErsteZeile
             // 
