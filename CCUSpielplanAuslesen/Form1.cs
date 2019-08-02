@@ -61,6 +61,7 @@ namespace CCUSpielplanAuslesen
                 startFormContent.TeamNumber = tempInt;
             }
             startFormContent.StartDate = dateTimePicker1.Text;
+            startFormContent.AddToOriginal = cB_OutToOriginal.Checked;
 
             Ausfuehren.Run(startFormContent);
 

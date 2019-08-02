@@ -39,6 +39,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbl_Spielplan = new System.Windows.Forms.Label();
             this.btn_StartAuslesen = new System.Windows.Forms.Button();
+            this.cB_OutToOriginal = new System.Windows.Forms.CheckBox();
+            this.lbl_OutToOriginal = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -137,11 +139,31 @@
             this.btn_StartAuslesen.UseVisualStyleBackColor = true;
             this.btn_StartAuslesen.Click += new System.EventHandler(this.btn_StartAuslesen_Click);
             // 
+            // cB_OutToOriginal
+            // 
+            this.cB_OutToOriginal.AutoSize = true;
+            this.cB_OutToOriginal.Location = new System.Drawing.Point(127, 146);
+            this.cB_OutToOriginal.Name = "cB_OutToOriginal";
+            this.cB_OutToOriginal.Size = new System.Drawing.Size(15, 14);
+            this.cB_OutToOriginal.TabIndex = 11;
+            this.cB_OutToOriginal.UseVisualStyleBackColor = true;
+            // 
+            // lbl_OutToOriginal
+            // 
+            this.lbl_OutToOriginal.AutoSize = true;
+            this.lbl_OutToOriginal.Location = new System.Drawing.Point(13, 146);
+            this.lbl_OutToOriginal.Name = "lbl_OutToOriginal";
+            this.lbl_OutToOriginal.Size = new System.Drawing.Size(97, 13);
+            this.lbl_OutToOriginal.TabIndex = 12;
+            this.lbl_OutToOriginal.Text = "Spielplan ergänzen";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 261);
+            this.Controls.Add(this.lbl_OutToOriginal);
+            this.Controls.Add(this.cB_OutToOriginal);
             this.Controls.Add(this.btn_StartAuslesen);
             this.Controls.Add(this.lbl_Spielplan);
             this.Controls.Add(this.textBox1);
@@ -173,6 +195,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbl_Spielplan;
         private System.Windows.Forms.Button btn_StartAuslesen;
+        private System.Windows.Forms.CheckBox cB_OutToOriginal;
+        private System.Windows.Forms.Label lbl_OutToOriginal;
     }
 }
 

@@ -14,5 +14,6 @@ namespace CCUSpielplanAuslesen
         public int FirstColumn { get; set; }
         public string StartDate { get; set; }
         public int TeamNumber { get; set; }
+        public bool AddToOriginal { get; set; }
     }
 }
