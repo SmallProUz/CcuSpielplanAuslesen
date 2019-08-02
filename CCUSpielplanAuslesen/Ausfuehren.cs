@@ -30,7 +30,8 @@ namespace CCUSpielplanAuslesen
                     {
                         var row = myWorksheet.Cells[rowNum, colNum, rowNum, colNum].Select(c => c.Value == null ? string.Empty : c.Value.ToString());//ganze linie
                         var line = string.Join(",", row);
-                        if (line.IndexOf(basis.TeamNumber.ToString() + " -")>=0 || line.IndexOf("- " + basis.TeamNumber.ToString()) >= 0)
+                        if (line.StartsWith(basis.TeamNumber.ToString() + " -") || line.EndsWith("- " + basis.TeamNumber.ToString()))
+                           // if (line.IndexOf(basis.TeamNumber.ToString() + " -")>=0 || line.IndexOf("- " + basis.TeamNumber.ToString()) >= 0)
                         { //diese Entscheidung funktioniert nur mit Zahlen grösser gleich 10!
                             SpielDatumZeit neuesDatum = new SpielDatumZeit();
                             tempDateTime = DateTime.Parse(basis.StartDate);
@@ -60,7 +61,7 @@ namespace CCUSpielplanAuslesen
 
             }
 
-            using (TextWriter writer = File.CreateText(basis.TargetPath+"Team"+basis.TeamNumber.ToString()+"Spieldaten.txt"))
+            using (TextWriter writer = File.CreateText(basis.TargetPath+"Team"+basis.TeamNumber.ToString()+"Spieldaten.csv"))
             {
                 foreach (var item in gefundeneDaten)
                 {
