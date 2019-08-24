@@ -69,5 +69,39 @@ namespace CCUSpielplanAuslesen
 
             Close();
         }
+
+        private void bt_AlleTeams_Click(object sender, EventArgs e)
+        {
+            int[] teamListe= { 2,3,4,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49};
+            StartFormContent startFormContent = new StartFormContent();
+            startFormContent.SourceFile = pathOfFile;
+            startFormContent.TargetPath = pathOnly;
+            int tempInt;
+            bool ok = int.TryParse(tB_ErsteSpalte.Text, out tempInt);
+            if (ok)
+            {
+                startFormContent.FirstColumn = tempInt;
+            }
+            ok = int.TryParse(tB_ErsteZeile.Text, out tempInt);
+            if (ok)
+            {
+                startFormContent.FirstRow = tempInt;
+            }
+            else
+            {
+                startFormContent.FirstRow = 1;
+            }
+            startFormContent.StartDate = dateTimePicker1.Text;
+            startFormContent.AddToOriginal = true;
+
+                foreach (var team in teamListe)
+                {
+
+                    startFormContent.TeamNumber = team;
+                    Ausfuehren.Run(startFormContent);
+
+                }
+                Close();
+        }
     }
 }

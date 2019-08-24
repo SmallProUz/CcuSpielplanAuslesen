@@ -41,6 +41,7 @@
             this.btn_StartAuslesen = new System.Windows.Forms.Button();
             this.cB_OutToOriginal = new System.Windows.Forms.CheckBox();
             this.lbl_OutToOriginal = new System.Windows.Forms.Label();
+            this.bt_AlleTeams = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -157,11 +158,22 @@
             this.lbl_OutToOriginal.TabIndex = 12;
             this.lbl_OutToOriginal.Text = "Spielplan ergänzen";
             // 
+            // bt_AlleTeams
+            // 
+            this.bt_AlleTeams.Location = new System.Drawing.Point(127, 215);
+            this.bt_AlleTeams.Name = "bt_AlleTeams";
+            this.bt_AlleTeams.Size = new System.Drawing.Size(200, 23);
+            this.bt_AlleTeams.TabIndex = 13;
+            this.bt_AlleTeams.Text = "Alle Teams in Excel";
+            this.bt_AlleTeams.UseVisualStyleBackColor = true;
+            this.bt_AlleTeams.Click += new System.EventHandler(this.bt_AlleTeams_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 261);
+            this.Controls.Add(this.bt_AlleTeams);
             this.Controls.Add(this.lbl_OutToOriginal);
             this.Controls.Add(this.cB_OutToOriginal);
             this.Controls.Add(this.btn_StartAuslesen);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.Button btn_StartAuslesen;
         private System.Windows.Forms.CheckBox cB_OutToOriginal;
         private System.Windows.Forms.Label lbl_OutToOriginal;
+        private System.Windows.Forms.Button bt_AlleTeams;
     }
 }
 
