@@ -17,7 +17,7 @@ namespace CCUSpielplanAuslesen
 
             {
 
-                var myWorksheet = xlPackage.Workbook.Worksheets["Tabelle1"];
+                var myWorksheet = xlPackage.Workbook.Worksheets[1];
                 var totalRows = myWorksheet.Dimension.End.Row;
                 var totalColumns = myWorksheet.Dimension.End.Column;
                 int dateAddRow;
