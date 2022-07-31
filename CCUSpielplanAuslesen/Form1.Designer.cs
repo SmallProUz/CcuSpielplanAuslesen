@@ -42,6 +42,8 @@
             this.cB_OutToOriginal = new System.Windows.Forms.CheckBox();
             this.lbl_OutToOriginal = new System.Windows.Forms.Label();
             this.bt_AlleTeams = new System.Windows.Forms.Button();
+            this.TBteamliste = new System.Windows.Forms.TextBox();
+            this.LBteamliste = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -168,11 +170,31 @@
             this.bt_AlleTeams.UseVisualStyleBackColor = true;
             this.bt_AlleTeams.Click += new System.EventHandler(this.bt_AlleTeams_Click);
             // 
+            // TBteamliste
+            // 
+            this.TBteamliste.Enabled = false;
+            this.TBteamliste.Location = new System.Drawing.Point(16, 270);
+            this.TBteamliste.Multiline = true;
+            this.TBteamliste.Name = "TBteamliste";
+            this.TBteamliste.Size = new System.Drawing.Size(490, 48);
+            this.TBteamliste.TabIndex = 14;
+            // 
+            // LBteamliste
+            // 
+            this.LBteamliste.AutoSize = true;
+            this.LBteamliste.Location = new System.Drawing.Point(16, 251);
+            this.LBteamliste.Name = "LBteamliste";
+            this.LBteamliste.Size = new System.Drawing.Size(42, 13);
+            this.LBteamliste.TabIndex = 15;
+            this.LBteamliste.Text = "Teams:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 261);
+            this.ClientSize = new System.Drawing.Size(518, 330);
+            this.Controls.Add(this.LBteamliste);
+            this.Controls.Add(this.TBteamliste);
             this.Controls.Add(this.bt_AlleTeams);
             this.Controls.Add(this.lbl_OutToOriginal);
             this.Controls.Add(this.cB_OutToOriginal);
@@ -210,6 +232,8 @@
         private System.Windows.Forms.CheckBox cB_OutToOriginal;
         private System.Windows.Forms.Label lbl_OutToOriginal;
         private System.Windows.Forms.Button bt_AlleTeams;
+        private System.Windows.Forms.TextBox TBteamliste;
+        private System.Windows.Forms.Label LBteamliste;
     }
 }
 

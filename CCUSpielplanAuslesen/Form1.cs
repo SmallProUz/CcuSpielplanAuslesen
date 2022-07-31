@@ -14,9 +14,16 @@ namespace CCUSpielplanAuslesen
     {
         private string pathOfFile;
         private string pathOnly;
+        private int[] teamListe = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 22, 23, 25, 26, 28, 29, 30, 31, 33, 34, 35, 37, 38, 39, 40, 42, 43, 44, 46, 47, 48, 49 };
         public Form1()
         {
             InitializeComponent();
+            string teamListeAsString = "";
+            foreach (var teamNr in teamListe)
+            {
+                teamListeAsString = teamListeAsString + teamNr.ToString() + ", ";
+            }
+            TBteamliste.Text = teamListeAsString;
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -72,7 +79,6 @@ namespace CCUSpielplanAuslesen
 
         private void bt_AlleTeams_Click(object sender, EventArgs e)
         {
-            int[] teamListe= { 1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,25,26,27,28,29,30,31,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49};
             StartFormContent startFormContent = new StartFormContent();
             startFormContent.SourceFile = pathOfFile;
             startFormContent.TargetPath = pathOnly;
