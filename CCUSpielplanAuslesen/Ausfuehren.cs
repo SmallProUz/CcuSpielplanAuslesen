@@ -30,8 +30,9 @@ namespace CCUSpielplanAuslesen
                     {
                         var row = myWorksheet.Cells[rowNum, colNum, rowNum, colNum].Select(c => c.Value == null ? string.Empty : c.Value.ToString());//ganze linie
                         var line = string.Join(",", row);
-                        if (line.StartsWith(basis.TeamNumber.ToString() + " -") || line.EndsWith("- " + basis.TeamNumber.ToString()))
-                        { 
+                        if (EnthaeltZielnummerUndGegner(line,basis.TeamNumber)) //Hier ändern
+                                               //if (line.StartsWith(basis.TeamNumber.ToString() + " -") || line.EndsWith("- " + basis.TeamNumber.ToString()))
+                        {
                             SpielDatumZeit neuesDatum = new SpielDatumZeit();
                             tempDateTime = DateTime.Parse(basis.StartDate);
                             dateAddRow = (rowNum - basis.FirstRow) / 8;
@@ -129,6 +130,90 @@ namespace CCUSpielplanAuslesen
                 }
             }
             
+        }
+        private static bool EnthaeltZielnummerUndGegner(string inputString, int gesuchteZahl)
+        {
+            if (!string.IsNullOrWhiteSpace(inputString) && inputString.Length>1)
+            {
+                int indexErsteZiffer = -1;
+                int indexLetzteZiffer = -1;
+                int indexErstesTrennzeichen = -1;
+                int indexLetztesTrennzeichen = -1;
+                int anzahlTrennzeichen = 0;
+                int ersteZahlInt = 0;
+                int zweiteZahlInt = 0;
+                string ersteZahl = "";
+                string zweiteZahl = "";
+                char tempChar;
+                for (int i = 0; i < inputString.Length; i++)
+                {
+                    tempChar = inputString[i];
+                    if (char.IsDigit(tempChar))
+                    {
+                        if (indexErsteZiffer == -1)
+                        {
+                            indexErsteZiffer = i;
+                        }
+                        else
+                        {
+                            indexLetzteZiffer = i;
+                        }
+                    }
+                }
+                if (indexErsteZiffer == -1 || indexLetzteZiffer == -1)//es wurde nur eine einzige Ziffer (oder gar keine) im String gefunden, es ist also keine gültige Angabe für ein Spiel mit Gegner
+                {
+                    return false;
+                }
+                if (indexLetzteZiffer > 0 && inputString.Length > indexLetzteZiffer +1) //es hat noch weitere Zeichen im String nach der letzten Ziffer
+                {
+                    inputString = inputString.Substring(0, indexLetzteZiffer + 1); //Abschneiden der letzten Zeichen
+                }
+                if (indexErsteZiffer > 0) //es hat noch Zeichen vor der ersten Ziffer
+                {
+                    inputString = inputString.Substring(indexErsteZiffer); //Abschneiden der Zeichen an der Front
+                }
+                for (int i = 0; i < inputString.Length; i++)
+                {
+                    tempChar = inputString[i];
+                    if (!char.IsDigit(tempChar))
+                    {
+                        if (indexErstesTrennzeichen == -1)
+                        {
+                            indexErstesTrennzeichen = i;
+                        }
+                        else
+                        {
+                            indexLetztesTrennzeichen = i;
+                        }
+                    }
+                }
+                if (indexErstesTrennzeichen < 0)
+                {
+                    return false; //es wurde kein Trennzeichen gefunden, also ist nur eine Zahl im String, also keine gültige Angabe
+                }
+                else
+                {
+                    if (indexLetztesTrennzeichen < 0)
+                    {
+                        anzahlTrennzeichen = 1;
+                    }
+                    anzahlTrennzeichen = indexLetztesTrennzeichen - indexErstesTrennzeichen + 1;
+                }
+                if (anzahlTrennzeichen > 0)
+                {
+                    ersteZahl = inputString.Substring(0, indexErstesTrennzeichen);
+                    zweiteZahl = inputString.Substring(indexErstesTrennzeichen + anzahlTrennzeichen);
+                    if (!int.TryParse(ersteZahl,out ersteZahlInt) || !int.TryParse(zweiteZahl,out  zweiteZahlInt))
+                    {
+                        return false;
+                    }
+                }
+                if (ersteZahlInt == gesuchteZahl || zweiteZahlInt == gesuchteZahl)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
