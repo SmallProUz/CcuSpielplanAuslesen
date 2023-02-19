@@ -197,7 +197,10 @@ namespace CCUSpielplanAuslesen
                     {
                         anzahlTrennzeichen = 1;
                     }
-                    anzahlTrennzeichen = indexLetztesTrennzeichen - indexErstesTrennzeichen + 1;
+                    else
+                    {
+                        anzahlTrennzeichen = indexLetztesTrennzeichen - indexErstesTrennzeichen + 1;
+                    }
                 }
                 if (anzahlTrennzeichen > 0)
                 {
