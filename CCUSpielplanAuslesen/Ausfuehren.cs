@@ -53,11 +53,12 @@ namespace CCUSpielplanAuslesen
                                 neuesDatum.StartMinute = "00";
                                 neuesDatum.EndHour = "20";
                             }
-                            neuesDatum.Name = line;
+                            neuesDatum.Name = ReplaceHundreds(ReplaceHundreds(line)); //muss zwei mal durchlaufen da es nur den ersten hunderter ersetzt, kann aber zwei drin haben
                             gefundeneDaten.Add(neuesDatum);
                         }
                     }
                 }
+                basis.TeamNumber = ReplaceHundreds(basis.TeamNumber);
                 if (basis.AddToOriginal)
                 {
                     var resultat = xlPackage.Workbook.Worksheets;
@@ -217,6 +218,83 @@ namespace CCUSpielplanAuslesen
                 }
             }
             return false;
+        }
+        private static string ReplaceHundreds(string inputString)
+        {
+            if (!string.IsNullOrEmpty(inputString)) 
+            {
+                if (inputString.Contains("101"))
+                {
+                    return inputString.Replace("101", "1");
+                }
+
+                if (inputString.Contains("102"))
+                {
+                    return inputString.Replace("102", "2");
+                }
+
+                if (inputString.Contains("103"))
+                {
+                    return inputString.Replace("103", "3");
+                }
+
+                if (inputString.Contains("104"))
+                {
+                    return inputString.Replace("104", "4");
+                }
+
+                if (inputString.Contains("105"))
+                {
+                    return inputString.Replace("105", "5");
+                }
+
+                if (inputString.Contains("106"))
+                {
+                    return inputString.Replace("106", "6");
+                }
+
+                if (inputString.Contains("107"))
+                {
+                    return inputString.Replace("107", "7");
+                }
+
+                if (inputString.Contains("108"))
+                {
+                    return inputString.Replace("108", "8");
+                }
+
+                if (inputString.Contains("109"))
+                {
+                    return inputString.Replace("109", "9");
+                }
+            }
+            return inputString;
+        }
+        private static int ReplaceHundreds(int inputInt)
+        {
+            switch (inputInt)
+            {
+                case 101:
+                    return 1;
+                case 102:
+                    return 2;
+                case 103:
+                    return 3;
+                case 104:
+                    return 4;
+                case 105:
+                    return 5;
+                case 106:
+                    return 6;
+                case 107:
+                    return 7;
+                case 108:
+                    return 8;
+                case 109:
+                    return 9;
+                default: 
+                    return inputInt;
+            }
         }
     }
 }
