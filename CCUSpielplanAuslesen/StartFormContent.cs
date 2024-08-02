@@ -15,5 +15,10 @@ namespace CCUSpielplanAuslesen
         public string StartDate { get; set; }
         public int TeamNumber { get; set; }
         public bool AddToOriginal { get; set; }
+        public bool AddFinals { get; set; }
+        public string FridayFinalDate { get; set; }
+        public string FridayFinalStartTimeText { get; set; }
+        public string SaturdayFinalDate { get; set; }
+        public string SaturdayFinalStartTimeText { get; set; }
     }
 }

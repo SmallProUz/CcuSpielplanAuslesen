@@ -58,6 +58,29 @@ namespace CCUSpielplanAuslesen
                         }
                     }
                 }
+                if (basis.AddFinals)
+                {
+                    SpielDatumZeit FreitagFinal = new SpielDatumZeit();
+                    SpielDatumZeit SamstagFinal = new SpielDatumZeit();
+                    tempDateTime = DateTime.Parse(basis.FridayFinalDate);
+                    FreitagFinal.Year = tempDateTime.Year.ToString();
+                    FreitagFinal.Month = tempDateTime.Month.ToString();
+                    FreitagFinal.Day = tempDateTime.Day.ToString();
+                    FreitagFinal.StartHour = basis.FridayFinalStartTimeText;
+                    FreitagFinal.StartMinute = "00";
+                    FreitagFinal.EndHour = "22";
+                    FreitagFinal.Name = "Clubmeisterschaft";
+                    gefundeneDaten.Add(FreitagFinal);
+                    tempDateTime = DateTime.Parse(basis.SaturdayFinalDate);
+                    SamstagFinal.Year = tempDateTime.Year.ToString();
+                    SamstagFinal.Month = tempDateTime.Month.ToString();
+                    SamstagFinal.Day = tempDateTime.Day.ToString();
+                    SamstagFinal.StartHour = basis.SaturdayFinalStartTimeText;
+                    SamstagFinal.StartMinute = "00";
+                    SamstagFinal.EndHour = "20";
+                    SamstagFinal.Name = "Clubmeisterschaft";
+                    gefundeneDaten.Add(SamstagFinal);
+                }
                 basis.TeamNumber = ReplaceHundreds(basis.TeamNumber);
                 if (basis.AddToOriginal)
                 {

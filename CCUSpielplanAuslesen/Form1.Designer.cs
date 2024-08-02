@@ -44,6 +44,12 @@
             this.bt_AlleTeams = new System.Windows.Forms.Button();
             this.TBteamliste = new System.Windows.Forms.TextBox();
             this.LBteamliste = new System.Windows.Forms.Label();
+            this.cbFinalrundeAdd = new System.Windows.Forms.CheckBox();
+            this.lbFinalrundeAdd = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tbFinalFreitagStundenText = new System.Windows.Forms.TextBox();
+            this.tbFinalSamstagStundenText = new System.Windows.Forms.TextBox();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -134,7 +140,7 @@
             // 
             // btn_StartAuslesen
             // 
-            this.btn_StartAuslesen.Location = new System.Drawing.Point(127, 185);
+            this.btn_StartAuslesen.Location = new System.Drawing.Point(127, 281);
             this.btn_StartAuslesen.Name = "btn_StartAuslesen";
             this.btn_StartAuslesen.Size = new System.Drawing.Size(200, 23);
             this.btn_StartAuslesen.TabIndex = 10;
@@ -162,7 +168,7 @@
             // 
             // bt_AlleTeams
             // 
-            this.bt_AlleTeams.Location = new System.Drawing.Point(127, 215);
+            this.bt_AlleTeams.Location = new System.Drawing.Point(127, 311);
             this.bt_AlleTeams.Name = "bt_AlleTeams";
             this.bt_AlleTeams.Size = new System.Drawing.Size(200, 23);
             this.bt_AlleTeams.TabIndex = 13;
@@ -173,7 +179,7 @@
             // TBteamliste
             // 
             this.TBteamliste.Enabled = false;
-            this.TBteamliste.Location = new System.Drawing.Point(16, 270);
+            this.TBteamliste.Location = new System.Drawing.Point(16, 366);
             this.TBteamliste.Multiline = true;
             this.TBteamliste.Name = "TBteamliste";
             this.TBteamliste.Size = new System.Drawing.Size(490, 48);
@@ -182,17 +188,71 @@
             // LBteamliste
             // 
             this.LBteamliste.AutoSize = true;
-            this.LBteamliste.Location = new System.Drawing.Point(16, 251);
+            this.LBteamliste.Location = new System.Drawing.Point(16, 347);
             this.LBteamliste.Name = "LBteamliste";
             this.LBteamliste.Size = new System.Drawing.Size(42, 13);
             this.LBteamliste.TabIndex = 15;
             this.LBteamliste.Text = "Teams:";
             // 
+            // cbFinalrundeAdd
+            // 
+            this.cbFinalrundeAdd.AutoSize = true;
+            this.cbFinalrundeAdd.Location = new System.Drawing.Point(127, 166);
+            this.cbFinalrundeAdd.Name = "cbFinalrundeAdd";
+            this.cbFinalrundeAdd.Size = new System.Drawing.Size(15, 14);
+            this.cbFinalrundeAdd.TabIndex = 16;
+            this.cbFinalrundeAdd.UseVisualStyleBackColor = true;
+            // 
+            // lbFinalrundeAdd
+            // 
+            this.lbFinalrundeAdd.AutoSize = true;
+            this.lbFinalrundeAdd.Location = new System.Drawing.Point(13, 167);
+            this.lbFinalrundeAdd.Name = "lbFinalrundeAdd";
+            this.lbFinalrundeAdd.Size = new System.Drawing.Size(103, 13);
+            this.lbFinalrundeAdd.TabIndex = 17;
+            this.lbFinalrundeAdd.Text = "Finalrunde ergänzen";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(149, 166);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 18;
+            // 
+            // tbFinalFreitagStundenText
+            // 
+            this.tbFinalFreitagStundenText.Location = new System.Drawing.Point(367, 165);
+            this.tbFinalFreitagStundenText.Name = "tbFinalFreitagStundenText";
+            this.tbFinalFreitagStundenText.Size = new System.Drawing.Size(100, 20);
+            this.tbFinalFreitagStundenText.TabIndex = 19;
+            this.tbFinalFreitagStundenText.Text = "18";
+            // 
+            // tbFinalSamstagStundenText
+            // 
+            this.tbFinalSamstagStundenText.Location = new System.Drawing.Point(367, 192);
+            this.tbFinalSamstagStundenText.Name = "tbFinalSamstagStundenText";
+            this.tbFinalSamstagStundenText.Size = new System.Drawing.Size(100, 20);
+            this.tbFinalSamstagStundenText.TabIndex = 20;
+            this.tbFinalSamstagStundenText.Text = "10";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Location = new System.Drawing.Point(149, 193);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker3.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 330);
+            this.ClientSize = new System.Drawing.Size(518, 428);
+            this.Controls.Add(this.dateTimePicker3);
+            this.Controls.Add(this.tbFinalSamstagStundenText);
+            this.Controls.Add(this.tbFinalFreitagStundenText);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.lbFinalrundeAdd);
+            this.Controls.Add(this.cbFinalrundeAdd);
             this.Controls.Add(this.LBteamliste);
             this.Controls.Add(this.TBteamliste);
             this.Controls.Add(this.bt_AlleTeams);
@@ -234,6 +294,12 @@
         private System.Windows.Forms.Button bt_AlleTeams;
         private System.Windows.Forms.TextBox TBteamliste;
         private System.Windows.Forms.Label LBteamliste;
+        private System.Windows.Forms.CheckBox cbFinalrundeAdd;
+        private System.Windows.Forms.Label lbFinalrundeAdd;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox tbFinalFreitagStundenText;
+        private System.Windows.Forms.TextBox tbFinalSamstagStundenText;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
     }
 }
 
