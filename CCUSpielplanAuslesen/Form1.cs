@@ -74,6 +74,7 @@ namespace CCUSpielplanAuslesen
             startFormContent.SaturdayFinalStartTimeText = tbFinalSamstagStundenText.Text;
             startFormContent.FridayFinalDate = dateTimePicker2.Text;
             startFormContent.SaturdayFinalDate = dateTimePicker3.Text;
+            startFormContent.CreateIcs = cbMakeIcsFiles.Checked;
 
             Ausfuehren.Run(startFormContent);
 
@@ -109,6 +110,7 @@ namespace CCUSpielplanAuslesen
             startFormContent.SaturdayFinalStartTimeText = tbFinalSamstagStundenText.Text;
             startFormContent.FridayFinalDate = dateTimePicker2.Text;
             startFormContent.SaturdayFinalDate = dateTimePicker3.Text;
+            startFormContent.CreateIcs = cbMakeIcsFiles.Checked;
 
                 foreach (var team in teamListe)
                 {

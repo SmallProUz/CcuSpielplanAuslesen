@@ -50,6 +50,8 @@
             this.tbFinalFreitagStundenText = new System.Windows.Forms.TextBox();
             this.tbFinalSamstagStundenText = new System.Windows.Forms.TextBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.cbMakeIcsFiles = new System.Windows.Forms.CheckBox();
+            this.lbMakeIcsFiles = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -242,11 +244,31 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 21;
             // 
+            // cbMakeIcsFiles
+            // 
+            this.cbMakeIcsFiles.AutoSize = true;
+            this.cbMakeIcsFiles.Location = new System.Drawing.Point(127, 229);
+            this.cbMakeIcsFiles.Name = "cbMakeIcsFiles";
+            this.cbMakeIcsFiles.Size = new System.Drawing.Size(15, 14);
+            this.cbMakeIcsFiles.TabIndex = 22;
+            this.cbMakeIcsFiles.UseVisualStyleBackColor = true;
+            // 
+            // lbMakeIcsFiles
+            // 
+            this.lbMakeIcsFiles.AutoSize = true;
+            this.lbMakeIcsFiles.Location = new System.Drawing.Point(16, 229);
+            this.lbMakeIcsFiles.Name = "lbMakeIcsFiles";
+            this.lbMakeIcsFiles.Size = new System.Drawing.Size(95, 13);
+            this.lbMakeIcsFiles.TabIndex = 23;
+            this.lbMakeIcsFiles.Text = "ICS-Files erzeugen";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 428);
+            this.Controls.Add(this.lbMakeIcsFiles);
+            this.Controls.Add(this.cbMakeIcsFiles);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.tbFinalSamstagStundenText);
             this.Controls.Add(this.tbFinalFreitagStundenText);
@@ -300,6 +322,8 @@
         private System.Windows.Forms.TextBox tbFinalFreitagStundenText;
         private System.Windows.Forms.TextBox tbFinalSamstagStundenText;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.CheckBox cbMakeIcsFiles;
+        private System.Windows.Forms.Label lbMakeIcsFiles;
     }
 }
 

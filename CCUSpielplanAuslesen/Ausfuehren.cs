@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO.Compression;
 
 namespace CCUSpielplanAuslesen
 {
@@ -153,7 +152,55 @@ namespace CCUSpielplanAuslesen
                     writer.WriteLine("Fuer dieses Team wurden keine Daten gefunden.");
                 }
             }
-            
+
+            if (basis.CreateIcs)
+            {
+                var path = basis.TargetPath + "\\Team" + basis.TeamNumber.ToString() + "Kalenderdateien";
+                if (Directory.Exists(path))
+                {
+                    Directory.Delete(path, true);
+                }
+                var dir = Directory.CreateDirectory(path);
+                foreach (var curlingDatum in gefundeneDaten) //erzeuge pro Datum ein ICS file
+                {
+                    using (TextWriter writer = File.CreateText(path + "\\" + curlingDatum.Year + AddLeading0IfNeeded(curlingDatum.Month) + AddLeading0IfNeeded(curlingDatum.Day) + "-Match" + curlingDatum.Name + ".ics"))
+                    {
+                        writer.WriteLine("BEGIN:VCALENDAR");
+                        writer.WriteLine("VERSION:2.0");
+                        writer.WriteLine("PRODID:-//icalendar.org//CCUSpielplan//DE");
+                        writer.WriteLine("BEGIN:VEVENT");
+                        writer.WriteLine("CREATED:" + DateTime.Now.ToString("yyyyMMdd") + "T" + DateTime.Now.ToString("HHmmss") + "Z");
+                        writer.WriteLine("DTSTAMP:" + DateTime.Now.ToString("yyyyMMdd") + "T" + DateTime.Now.ToString("HHmmss") + "Z");
+                        writer.WriteLine("DTSTART:" + curlingDatum.Year + AddLeading0IfNeeded(curlingDatum.Month) + AddLeading0IfNeeded(curlingDatum.Day) + "T" + curlingDatum.StartHour + curlingDatum.StartMinute + "00");
+                        writer.WriteLine("DTEND:" + curlingDatum.Year + AddLeading0IfNeeded(curlingDatum.Month) + AddLeading0IfNeeded(curlingDatum.Day) + "T" + curlingDatum.EndHour + curlingDatum.StartMinute + "00");
+                        writer.WriteLine("LOCATION:" + "Curlinghalle Uzwil");
+                        writer.WriteLine("UID:" + (curlingDatum.Year + AddLeading0IfNeeded(curlingDatum.Month) + AddLeading0IfNeeded(curlingDatum.Day) + "T" + curlingDatum.StartHour + curlingDatum.StartMinute + "00") + (curlingDatum.Year + AddLeading0IfNeeded(curlingDatum.Month) + AddLeading0IfNeeded(curlingDatum.Day) + "T" + curlingDatum.EndHour + curlingDatum.StartMinute + "00") + "|CCU");
+                        writer.WriteLine("SUMMARY;LANGUAGE=en-us:" + "Curlingmatch " + curlingDatum.Name);
+                        writer.WriteLine("DESCRIPTION:");
+                        writer.WriteLine("X-ALT-DESC;FMTTYPE=text/html:");
+                        writer.WriteLine("PRIORITY:5");
+                        writer.WriteLine("SEQUENCE:0");
+                        writer.WriteLine("STATUS:CONFIRMED");
+                        writer.WriteLine("TRANSP:OPAQUE");
+                        writer.WriteLine("CLASS:PUBLIC");
+                        writer.WriteLine("X-MS-OLK-ALLOWEXTERNCHECK:FALSE");
+                        writer.WriteLine("X-MS-OLK-AUTOFILLLOCATION:FALSE");
+                        writer.WriteLine("X-MICROSOFT-CDO-ALLDAYEVENT:FALSE");
+                        writer.WriteLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
+                        writer.WriteLine("X-MS-OLK-FORCEINSPECTOROPEN:TRUE");
+                        writer.WriteLine("ORGANIZER;CN=\"Curling Club Uzwil\":MAILTO:m.louis.ch@gmail.com");
+                        writer.WriteLine("BEGIN:VALARM");
+                        writer.WriteLine("TRIGGER:-PT15M");
+                        writer.WriteLine("ACTION:DISPLAY");
+                        writer.WriteLine("DESCRIPTION:Reminder");
+                        writer.WriteLine("END:VALARM");
+                        writer.WriteLine("END:VEVENT");
+                        writer.WriteLine("END:VCALENDAR");
+                    }
+                }
+                ZipFile.CreateFromDirectory(path, path + ".zip");
+            }
+
         }
         private static bool EnthaeltZielnummerUndGegner(string inputString, int gesuchteZahl)
         {
@@ -318,6 +365,19 @@ namespace CCUSpielplanAuslesen
                 default: 
                     return inputInt;
             }
+        }
+        private static string AddLeading0IfNeeded(string input)
+        {
+            string output = "";
+            if (input.Length < 2)
+            {
+                output = "0" + input;
+            }
+            else
+            {
+                output = input;
+            }
+            return output;
         }
     }
 }
