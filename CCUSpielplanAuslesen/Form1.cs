@@ -75,12 +75,11 @@ namespace CCUSpielplanAuslesen
             startFormContent.FridayFinalDate = dateTimePicker2.Text;
             startFormContent.SaturdayFinalDate = dateTimePicker3.Text;
             startFormContent.CreateIcs = cbMakeIcsFiles.Checked;
+            startFormContent.CreateCsv = cbMakeCsvFiles.Checked;
 
             Ausfuehren.Run(startFormContent);
 
-
-
-            Close();
+            MessageBox.Show("Done");
         }
 
         private void bt_AlleTeams_Click(object sender, EventArgs e)
@@ -88,6 +87,7 @@ namespace CCUSpielplanAuslesen
             StartFormContent startFormContent = new StartFormContent();
             startFormContent.SourceFile = pathOfFile;
             startFormContent.TargetPath = pathOnly;
+            int countRuns = 0;
             int tempInt;
             bool ok = int.TryParse(tB_ErsteSpalte.Text, out tempInt);
             if (ok)
@@ -111,15 +111,20 @@ namespace CCUSpielplanAuslesen
             startFormContent.FridayFinalDate = dateTimePicker2.Text;
             startFormContent.SaturdayFinalDate = dateTimePicker3.Text;
             startFormContent.CreateIcs = cbMakeIcsFiles.Checked;
+            startFormContent.CreateCsv = cbMakeCsvFiles.Checked;
+            foreach (var team in teamListe)
+            {
 
-                foreach (var team in teamListe)
-                {
+                startFormContent.TeamNumber = team;
+                Ausfuehren.Run(startFormContent);
+                countRuns++;
+            }
+            MessageBox.Show(countRuns.ToString() + " Teams erzeugt");
+        }
 
-                    startFormContent.TeamNumber = team;
-                    Ausfuehren.Run(startFormContent);
-
-                }
-                Close();
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

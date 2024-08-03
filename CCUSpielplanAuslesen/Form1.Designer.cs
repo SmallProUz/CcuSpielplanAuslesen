@@ -52,6 +52,9 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.cbMakeIcsFiles = new System.Windows.Forms.CheckBox();
             this.lbMakeIcsFiles = new System.Windows.Forms.Label();
+            this.cbMakeCsvFiles = new System.Windows.Forms.CheckBox();
+            this.lbMakeCsvFiles = new System.Windows.Forms.Label();
+            this.bClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tB_TeamNummer
@@ -262,11 +265,42 @@
             this.lbMakeIcsFiles.TabIndex = 23;
             this.lbMakeIcsFiles.Text = "ICS-Files erzeugen";
             // 
+            // cbMakeCsvFiles
+            // 
+            this.cbMakeCsvFiles.AutoSize = true;
+            this.cbMakeCsvFiles.Location = new System.Drawing.Point(127, 250);
+            this.cbMakeCsvFiles.Name = "cbMakeCsvFiles";
+            this.cbMakeCsvFiles.Size = new System.Drawing.Size(15, 14);
+            this.cbMakeCsvFiles.TabIndex = 24;
+            this.cbMakeCsvFiles.UseVisualStyleBackColor = true;
+            // 
+            // lbMakeCsvFiles
+            // 
+            this.lbMakeCsvFiles.AutoSize = true;
+            this.lbMakeCsvFiles.Location = new System.Drawing.Point(16, 250);
+            this.lbMakeCsvFiles.Name = "lbMakeCsvFiles";
+            this.lbMakeCsvFiles.Size = new System.Drawing.Size(99, 13);
+            this.lbMakeCsvFiles.TabIndex = 25;
+            this.lbMakeCsvFiles.Text = "CSV-Files erzeugen";
+            // 
+            // bClose
+            // 
+            this.bClose.Location = new System.Drawing.Point(367, 310);
+            this.bClose.Name = "bClose";
+            this.bClose.Size = new System.Drawing.Size(100, 23);
+            this.bClose.TabIndex = 26;
+            this.bClose.Text = "Beenden";
+            this.bClose.UseVisualStyleBackColor = true;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(518, 428);
+            this.Controls.Add(this.bClose);
+            this.Controls.Add(this.lbMakeCsvFiles);
+            this.Controls.Add(this.cbMakeCsvFiles);
             this.Controls.Add(this.lbMakeIcsFiles);
             this.Controls.Add(this.cbMakeIcsFiles);
             this.Controls.Add(this.dateTimePicker3);
@@ -324,6 +358,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.CheckBox cbMakeIcsFiles;
         private System.Windows.Forms.Label lbMakeIcsFiles;
+        private System.Windows.Forms.CheckBox cbMakeCsvFiles;
+        private System.Windows.Forms.Label lbMakeCsvFiles;
+        private System.Windows.Forms.Button bClose;
     }
 }
 

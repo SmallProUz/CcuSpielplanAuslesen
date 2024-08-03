@@ -21,5 +21,6 @@ namespace CCUSpielplanAuslesen
         public string SaturdayFinalDate { get; set; }
         public string SaturdayFinalStartTimeText { get; set; }
         public bool CreateIcs { get; set; }
+        public bool CreateCsv { get; set; }
     }
 }

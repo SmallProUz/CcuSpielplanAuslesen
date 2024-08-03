@@ -138,20 +138,24 @@ namespace CCUSpielplanAuslesen
 
             }
 
-            using (TextWriter writer = File.CreateText(basis.TargetPath+"Team"+basis.TeamNumber.ToString()+"Spieldaten.csv"))
+            if (basis.CreateCsv)
             {
-                if (gefundeneDaten.Count > 0)
+                using (TextWriter writer = File.CreateText(basis.TargetPath + "Team" + basis.TeamNumber.ToString() + "Spieldaten.csv"))
                 {
-                    foreach (var item in gefundeneDaten)
+                    if (gefundeneDaten.Count > 0)
                     {
-                        writer.WriteLine(item.Day + "." + item.Month + "." + item.Year + ";" + item.StartHour + "." + item.StartMinute + ";" + item.EndHour + "." + item.StartMinute + ";" + item.Name);
+                        foreach (var item in gefundeneDaten)
+                        {
+                            writer.WriteLine(item.Day + "." + item.Month + "." + item.Year + ";" + item.StartHour + "." + item.StartMinute + ";" + item.EndHour + "." + item.StartMinute + ";" + item.Name);
+                        }
+                    }
+                    else
+                    {
+                        writer.WriteLine("Fuer dieses Team wurden keine Daten gefunden.");
                     }
                 }
-                else
-                {
-                    writer.WriteLine("Fuer dieses Team wurden keine Daten gefunden.");
-                }
             }
+            
 
             if (basis.CreateIcs)
             {
