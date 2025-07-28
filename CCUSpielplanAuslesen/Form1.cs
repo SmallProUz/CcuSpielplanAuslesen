@@ -14,7 +14,7 @@ namespace CCUSpielplanAuslesen
     {
         private string pathOfFile;
         private string pathOnly;
-        private int[] teamListe = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 37, 39, 40, 42, 44, 47, 48 };
+        private int[] teamListe = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26, 27, 29, 30, 31, 32, 33, 34, 35, 37, 39, 40, 42, 44, 47, 48 };
         public Form1()
         {
             InitializeComponent();
