@@ -142,11 +142,13 @@ namespace CCUSpielplanAuslesen
             {
                 using (TextWriter writer = File.CreateText(basis.TargetPath + "Team" + basis.TeamNumber.ToString() + "Spieldaten.csv"))
                 {
+                    writer.WriteLine("subject;startdate;starttime;enddate;endtime"); //Titelzeile fuer importierbare Datei in Kalender
                     if (gefundeneDaten.Count > 0)
                     {
                         foreach (var item in gefundeneDaten)
                         {
-                            writer.WriteLine(item.Day + "." + item.Month + "." + item.Year + ";" + item.StartHour + "." + item.StartMinute + ";" + item.EndHour + "." + item.StartMinute + ";" + item.Name);
+                            writer.WriteLine("Curling " + item.Name + ";" + item.Day + "." + item.Month + "." + item.Year + ";" + item.StartHour + "." + item.StartMinute + ";"
+                                + item.Day + "." + item.Month + "." + item.Year + ";" + item.EndHour + "." + item.StartMinute + ";");
                         }
                     }
                     else
