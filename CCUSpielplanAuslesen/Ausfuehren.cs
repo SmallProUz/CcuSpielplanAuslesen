@@ -53,6 +53,12 @@ namespace CCUSpielplanAuslesen
                                 neuesDatum.EndHour = "20";
                             }
                             neuesDatum.Name = ReplaceHundreds(ReplaceHundreds(line)); //muss zwei mal durchlaufen da es nur den ersten hunderter ersetzt, kann aber zwei drin haben
+                            var tempRinkNummer = ((rowNum - basis.FirstRow + 1) % 4); //% ist fuer Modulo
+                            if (tempRinkNummer == 0)
+                            {
+                                tempRinkNummer = 4;
+                            }
+                            neuesDatum.RinkNummer = tempRinkNummer.ToString();
                             gefundeneDaten.Add(neuesDatum);
                         }
                     }
