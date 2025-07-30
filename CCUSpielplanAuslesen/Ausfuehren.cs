@@ -75,6 +75,7 @@ namespace CCUSpielplanAuslesen
                     FreitagFinal.StartMinute = "00";
                     FreitagFinal.EndHour = "22";
                     FreitagFinal.Name = "Clubmeisterschaft";
+                    FreitagFinal.RinkNummer = "sep. Spielplan";
                     gefundeneDaten.Add(FreitagFinal);
                     tempDateTime = DateTime.Parse(basis.SaturdayFinalDate);
                     SamstagFinal.Year = tempDateTime.Year.ToString();
@@ -84,6 +85,7 @@ namespace CCUSpielplanAuslesen
                     SamstagFinal.StartMinute = "00";
                     SamstagFinal.EndHour = "20";
                     SamstagFinal.Name = "Clubmeisterschaft";
+                    SamstagFinal.RinkNummer = "sep. Spielplan";
                     gefundeneDaten.Add(SamstagFinal);
                 }
                 basis.TeamNumber = ReplaceHundreds(basis.TeamNumber);
@@ -109,6 +111,7 @@ namespace CCUSpielplanAuslesen
                         existingSheet.Cells[1, 1].Value = "Datum";
                         existingSheet.Cells[1, 2].Value = "Startzeit";
                         existingSheet.Cells[1, 3].Value = "Spiel";
+                        existingSheet.Cells[1, 4].Value = "Rink";
                         if (gefundeneDaten.Count > 0)
                         {
                             int rowToLoad = 2;
@@ -117,6 +120,7 @@ namespace CCUSpielplanAuslesen
                                 existingSheet.Cells[rowToLoad, 1].Value = item.Day + "." + item.Month + "." + item.Year;
                                 existingSheet.Cells[rowToLoad, 2].Value = item.StartHour + "." + item.StartMinute;
                                 existingSheet.Cells[rowToLoad, 3].Value = item.Name;
+                                existingSheet.Cells[rowToLoad, 4].Value = item.RinkNummer;
                                 rowToLoad++;
                             }
                         }
@@ -127,6 +131,7 @@ namespace CCUSpielplanAuslesen
                         newSheet.Cells[1, 1].Value = "Datum";
                         newSheet.Cells[1, 2].Value = "Startzeit";
                         newSheet.Cells[1, 3].Value = "Spiel";
+                        newSheet.Cells[1, 4].Value = "Rink";
                         if (gefundeneDaten.Count > 0)
                         {
                             int rowToLoad = 2;
@@ -135,6 +140,7 @@ namespace CCUSpielplanAuslesen
                                 newSheet.Cells[rowToLoad, 1].Value = item.Day + "." + item.Month + "." + item.Year;
                                 newSheet.Cells[rowToLoad, 2].Value = item.StartHour + "." + item.StartMinute;
                                 newSheet.Cells[rowToLoad, 3].Value = item.Name;
+                                newSheet.Cells[rowToLoad, 4].Value = item.RinkNummer;
                                 rowToLoad++;
                             }
                         }
